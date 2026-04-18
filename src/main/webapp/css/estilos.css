@@ -1,0 +1,363 @@
+/* ── Reset global ── */
+*, *::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ── Variables CSS (Custom Properties) ── */
+:root {
+    --color-primary: #667eea;
+    --color-secondary: #764ba2;
+    --color-dark: #2c3e50;
+    --color-text: #333;
+    --color-grey: #808080;
+    --color-highlight: #f9f9f9;
+    --color-bg: #f5f5f5;
+    --color-white: #ffffff;
+    --color-success: #27ae60;
+    --color-danger: #e74c3c;
+    --color-warning: #f39c12;
+    --font-base: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --radius: 8px;
+    --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-strong: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ── Base documento ── */
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-base);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-text);
+    background: var(--color-bg);
+}
+
+/* ── Contenedor centrado ── */
+.container {
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ── Tipografía ── */
+h1, h2, h3 {
+    color: var(--color-dark);
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    padding: 20px 0;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: var(--color-white);
+    border-radius: var(--radius);
+}
+
+/* ── Formularios ── */
+form {
+    margin: 20px;
+    padding: 20px;
+    background: var(--color-white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    flex: 1;
+    min-width: 150px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+}
+
+button,
+a.btn {
+    padding: 10px 20px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+button:hover,
+a.btn:hover {
+    background-color: var(--color-secondary);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.btn-danger {
+    background-color: var(--color-danger);
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+}
+
+.btn-success {
+    background-color: var(--color-success);
+}
+
+.btn-success:hover {
+    background-color: #229954;
+}
+
+.btn-warning {
+    background-color: var(--color-warning);
+}
+
+.btn-warning:hover {
+    background-color: #d68910;
+}
+
+/* ── Tablas ── */
+table {
+    width: 95%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: var(--color-white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-strong);
+}
+
+thead {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: var(--color-white);
+}
+
+th {
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid #555;
+}
+
+td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+tbody tr:hover {
+    background-color: var(--color-highlight);
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ── Acciones en tabla ── */
+td form {
+    margin: 0;
+    padding: 0;
+    background: none;
+    box-shadow: none;
+    display: inline;
+}
+
+td form button {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+}
+
+td form input[type="hidden"] {
+    display: none;
+}
+
+/* ── Mensajes y alertas ── */
+.empty-message {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--color-grey);
+    font-size: 1.2rem;
+}
+
+.alert {
+    padding: 15px;
+    margin: 20px;
+    border-radius: var(--radius);
+    font-weight: 500;
+}
+
+.alert-info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border-left: 4px solid #17a2b8;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border-left: 4px solid #28a745;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-left: 4px solid #f5c6cb;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border-left: 4px solid #ffc107;
+}
+
+/* ── Navegación ── */
+nav {
+    background-color: var(--color-dark);
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: var(--radius);
+}
+
+nav a {
+    color: var(--color-white);
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--color-primary);
+}
+
+/* ── Totales y resumen ── */
+.summary {
+    background: var(--color-white);
+    padding: 20px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-align: right;
+    margin: 20px;
+    font-size: 1.1rem;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: flex-end;
+    padding: 8px 0;
+    gap: 20px;
+}
+
+.summary-row.total {
+    font-weight: 700;
+    font-size: 1.3rem;
+    border-top: 2px solid #ddd;
+    padding-top: 10px;
+    color: var(--color-primary);
+}
+
+/* ── Cantidad ── */
+.cantidad-control {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.cantidad-control input[type="number"] {
+    width: 60px;
+    text-align: center;
+}
+
+/* ── Precio ── */
+.precio {
+    font-weight: 600;
+    color: var(--color-success);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    form {
+        flex-direction: column;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    button {
+        width: 100%;
+    }
+
+    table {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+    th, td {
+        padding: 8px 10px;
+    }
+
+    .summary-row {
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .summary-row.total {
+        text-align: right;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.4rem;
+        padding: 15px;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    th, td {
+        padding: 5px;
+        font-size: 0.85rem;
+    }
+
+    button {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+}
